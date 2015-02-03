@@ -63,14 +63,14 @@ class ProductTest < ActiveSupport::TestCase
                  product.errors[:title]
   end
 
-  test "product title must be less than or equal to 20 characters" do
-    product = Product.new(title:       "a"*21,
+  test "product title must be less than or equal to 100 characters" do
+    product = Product.new(title:       "a"*101,
                           description: "yyy", 
                           price:       1, 
                           image_url:   "fred.gif")
     assert product.invalid?
 
-    product = Product.new(title:       "a"*20,
+    product = Product.new(title:       "a"*100,
                           description: "yyy", 
                           price:       1, 
                           image_url:   "fred.gif")
